@@ -30,18 +30,22 @@ class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     
-    func configure(with value: MChat) {
-        friendImageView.image = UIImage(named: value.userImageString)
+    func configure<U>(with value: U) where U : Hashable {//func configure(with value: MChat) {
+        guard let chat: MChat = value as? MChat else {
+            return
+        }
+        friendImageView.image = UIImage(named: chat.userImageString)
     }
     
     private func setupConstraints() {
         friendImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(friendImageView)
         
-        friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).activate
-        friendImageView.topAnchor.constraint(equalTo: self.topAnchor).activate
-        friendImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).activate
-        friendImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).activate
+        friendImageView.fillSuperview()
+//        friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).activate
+//        friendImageView.topAnchor.constraint(equalTo: self.topAnchor).activate
+//        friendImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).activate
+//        friendImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).activate
     }
     
 }

@@ -15,7 +15,7 @@ extension UIColor {
     }
     
     static var mainWhite: UIColor {
-          return #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
+        return #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
     }
     
     static var buttonDark: UIColor {
@@ -23,7 +23,7 @@ extension UIColor {
     }
     
     static var textFieldLight: UIColor {
-           return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+        return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
     }
     
 }
