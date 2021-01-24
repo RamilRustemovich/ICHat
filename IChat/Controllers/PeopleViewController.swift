@@ -80,14 +80,16 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    private func reloadData() {
-           var snapshot = NSDiffableDataSourceSnapshot<Section, MUser>()
-           snapshot.appendSections([.users])
-           snapshot.appendItems(users, toSection: .users)
-           dataSource?.apply(snapshot, animatingDifferences: true)
-       }
-    
-    
+    private func reloadData(with searchText: String? = nil) {
+        
+        let filtered = users.filter { (user) -> Bool in
+            user.contains(filter: searchText)
+        }
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MUser>()
+        snapshot.appendSections([.users])
+        snapshot.appendItems(filtered, toSection: .users)
+        dataSource?.apply(snapshot, animatingDifferences: true)
+    }
     
     
     // MARK: - Setup layout
@@ -134,6 +136,7 @@ class PeopleViewController: UIViewController {
 // MARK: - UISearchBarDelegate
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        reloadData(with: searchText)
         print(searchText)
     }
 }
