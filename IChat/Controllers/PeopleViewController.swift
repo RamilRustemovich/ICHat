@@ -81,7 +81,6 @@ class PeopleViewController: UIViewController {
     }
     
     private func reloadData(with searchText: String? = nil) {
-        
         let filtered = users.filter { (user) -> Bool in
             user.contains(filter: searchText)
         }

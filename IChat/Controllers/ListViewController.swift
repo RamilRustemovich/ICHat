@@ -162,8 +162,6 @@ extension ListViewController: UISearchBarDelegate {
 
 
 
-
-
 // MARK: - Canvas
 import SwiftUI
 
@@ -185,3 +183,5 @@ struct ListVCProvider: PreviewProvider {
         
     }
 }
+
+
