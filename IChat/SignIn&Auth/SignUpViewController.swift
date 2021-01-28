@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    weak var delegate: AuthNavigatingDelegate?
+    
     let welcomeLabel = UILabel(text: "Good to see you!", font: .avenir26())
     let emailLabel = UILabel(text: "Email")
     let passwordLabel = UILabel(text: "Password")
@@ -31,9 +33,33 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         setupConstraints()
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
+    
+    // MARK: - button targets
+     @objc private func signUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordTextField.text) { (result) in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Success", and: "You're registered!") {
+                    self.present(SetupProfileViewController(), animated: true, completion: nil)
+                }
+                
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
+        }
+     }
+    
+    @objc private func loginButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.toLoginVC()
+        }
+    }
+    
     
     // MARK: - setup constraints
     private func setupConstraints() {
@@ -90,5 +116,19 @@ struct SignUpVCProvider: PreviewProvider {
             
         }
         
+    }
+}
+
+
+
+
+extension UIViewController {
+    func showAlert(with title: String, and message: String, completion: @escaping () -> () = {}) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            completion()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

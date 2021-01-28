@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,9 @@
 		9567BD9A2589799C000DD6F2 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9567BD992589799C000DD6F2 /* UIImageView + Extension.swift */; };
 		9575B3FF25B8B72600246340 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575B3FE25B8B72600246340 /* UserCell.swift */; };
 		9575B40125B8B9E200246340 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575B40025B8B9E200246340 /* UIViewController + Extension.swift */; };
+		957FA4E925C305BB009EB14F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957FA4E825C305BB009EB14F /* AuthService.swift */; };
+		957FA4EB25C33493009EB14F /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957FA4EA25C33493009EB14F /* Validators.swift */; };
+		957FA4ED25C335FB009EB14F /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957FA4EC25C335FB009EB14F /* AuthError.swift */; };
 		959DB0B325B33B5900DE9F63 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B225B33B5900DE9F63 /* GradientView.swift */; };
 		959DB0B525B33FB300DE9F63 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B425B33FB300DE9F63 /* WaitingChatCell.swift */; };
 		959DB0B725B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B625B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift */; };
@@ -75,6 +78,9 @@
 		9567BD992589799C000DD6F2 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		9575B3FE25B8B72600246340 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		9575B40025B8B9E200246340 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		957FA4E825C305BB009EB14F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		957FA4EA25C33493009EB14F /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		957FA4EC25C335FB009EB14F /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		959DB0B225B33B5900DE9F63 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		959DB0B425B33FB300DE9F63 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		959DB0B625B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCellProtocol.swift; sourceTree = "<group>"; };
@@ -116,7 +122,6 @@
 				9D30B992CA4D06FDF3300317 /* Pods-IChat.debug.xcconfig */,
 				BB402E25EF79FC183EDADF2F /* Pods-IChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,6 +159,23 @@
 				9535133325B792BE00A42E8E /* MUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		957FA4E725C30598009EB14F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				957FA4E825C305BB009EB14F /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		957FA4EE25C33916009EB14F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				957FA4EC25C335FB009EB14F /* AuthError.swift */,
+				957FA4EA25C33493009EB14F /* Validators.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		95960565258BAAD0002F0A84 /* UIKit */ = {
@@ -238,10 +260,12 @@
 			children = (
 				95FF23092589551400C78FDA /* AppDelegate.swift */,
 				95FF230B2589551400C78FDA /* SceneDelegate.swift */,
-				9535133525B7930400A42E8E /* Models */,
+				957FA4E725C30598009EB14F /* Services */,
 				95B1A5BD25927EC000D174B3 /* Controllers */,
 				95B1A5BA2592795B00D174B3 /* SignIn&Auth */,
+				9535133525B7930400A42E8E /* Models */,
 				95960566258BAADC002F0A84 /* Extensions */,
+				957FA4EE25C33916009EB14F /* Helpers */,
 				95FF23122589551800C78FDA /* Assets.xcassets */,
 				95FF23142589551800C78FDA /* LaunchScreen.storyboard */,
 				95FF23172589551800C78FDA /* Info.plist */,
@@ -376,6 +400,7 @@
 				95B1A5C125927F3800D174B3 /* MainTabBarController.swift in Sources */,
 				954A14F625BCEACD00C9DF4A /* InsertableTextField.swift in Sources */,
 				95FF230E2589551400C78FDA /* AuthViewController.swift in Sources */,
+				957FA4EB25C33493009EB14F /* Validators.swift in Sources */,
 				95E41F9B258D1DD8009019BB /* SetupProfileViewController.swift in Sources */,
 				9507C0C525B2401600875AD9 /* Bundle-Decodable.swift in Sources */,
 				95FF230A2589551400C78FDA /* AppDelegate.swift in Sources */,
@@ -395,6 +420,8 @@
 				9567BD962589768C000DD6F2 /* UIColor + Extension.swift in Sources */,
 				95FF230C2589551400C78FDA /* SceneDelegate.swift in Sources */,
 				95429AD725BDFC3D00EB4FAA /* ChatRequestViewController.swift in Sources */,
+				957FA4E925C305BB009EB14F /* AuthService.swift in Sources */,
+				957FA4ED25C335FB009EB14F /* AuthError.swift in Sources */,
 				954A14F825BCF5C100C9DF4A /* UIView + Extension.swift in Sources */,
 				95B1A5BC2592799B00D174B3 /* ListViewController.swift in Sources */,
 				959DB0B525B33FB300DE9F63 /* WaitingChatCell.swift in Sources */,
