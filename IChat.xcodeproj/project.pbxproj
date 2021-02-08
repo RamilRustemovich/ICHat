@@ -41,6 +41,9 @@
 		95B1A5BF25927EE200D174B3 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */; };
 		95B1A5C125927F3800D174B3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5C025927F3800D174B3 /* MainTabBarController.swift */; };
 		95C14EED25B4F57E002CBDA4 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C14EEC25B4F57E002CBDA4 /* SectionHeader.swift */; };
+		95CBA58325D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */; };
+		95CBA58525D0AAD00048F4CE /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58425D0AAD00048F4CE /* FirestoreService.swift */; };
+		95CBA58725D0AF300048F4CE /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58625D0AF300048F4CE /* UserError.swift */; };
 		95E41F99258D0F8D009019BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F98258D0F8D009019BB /* LoginViewController.swift */; };
 		95E41F9B258D1DD8009019BB /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */; };
 		95E41F9D258D20E2009019BB /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F9C258D20E2009019BB /* AddPhotoView.swift */; };
@@ -88,6 +91,9 @@
 		95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		95B1A5C025927F3800D174B3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		95C14EEC25B4F57E002CBDA4 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegateProtocol.swift; sourceTree = "<group>"; };
+		95CBA58425D0AAD00048F4CE /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		95CBA58625D0AF300048F4CE /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		95E41F98258D0F8D009019BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		95E41F9C258D20E2009019BB /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				957FA4E825C305BB009EB14F /* AuthService.swift */,
+				95CBA58425D0AAD00048F4CE /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				957FA4EC25C335FB009EB14F /* AuthError.swift */,
+				95CBA58625D0AF300048F4CE /* UserError.swift */,
 				957FA4EA25C33493009EB14F /* Validators.swift */,
 			);
 			path = Helpers;
@@ -219,6 +227,7 @@
 				953B13FC258BF6EB00FBA3DA /* SignUpViewController.swift */,
 				95E41F98258D0F8D009019BB /* LoginViewController.swift */,
 				95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */,
+				95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */,
 			);
 			path = "SignIn&Auth";
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 				9535133225B7927000A42E8E /* MChat.swift in Sources */,
 				95E41F99258D0F8D009019BB /* LoginViewController.swift in Sources */,
 				959DB0B325B33B5900DE9F63 /* GradientView.swift in Sources */,
+				95CBA58725D0AF300048F4CE /* UserError.swift in Sources */,
 				959DB0B725B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift in Sources */,
 				9567BD94258975BD000DD6F2 /* UIFont + Extension.swift in Sources */,
 				95B1A5C125927F3800D174B3 /* MainTabBarController.swift in Sources */,
@@ -408,6 +418,7 @@
 				95192678258BB4D00040715A /* StackView + Extension.swift in Sources */,
 				954A14F425BCE3E600C9DF4A /* ProfileViewController.swift in Sources */,
 				95192674258BAD460040715A /* ButtonFormView.swift in Sources */,
+				95CBA58525D0AAD00048F4CE /* FirestoreService.swift in Sources */,
 				95C14EED25B4F57E002CBDA4 /* SectionHeader.swift in Sources */,
 				95192676258BADD30040715A /* Constraint + Extension.swift in Sources */,
 				953B13FD258BF6EB00FBA3DA /* SignUpViewController.swift in Sources */,
@@ -428,6 +439,7 @@
 				953B13FF258C1A2700FBA3DA /* OneLineTextField.swift in Sources */,
 				9507C0C825B254ED00875AD9 /* ActiveChatCell.swift in Sources */,
 				9567BD9225896550000DD6F2 /* UIButton + Extension.swift in Sources */,
+				95CBA58325D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift in Sources */,
 				95E41F9F258D4EA0009019BB /* SegmentedControl + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

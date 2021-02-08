@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
             switch result {
             case .success(let user):
                 self.showAlert(with: "Success", and: "You're registered!") {
-                    self.present(SetupProfileViewController(), animated: true, completion: nil)
+                    self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
                 }
                 
             case .failure(let error):
@@ -123,7 +123,7 @@ struct SignUpVCProvider: PreviewProvider {
 
 
 extension UIViewController {
-    func showAlert(with title: String, and message: String, completion: @escaping () -> () = {}) {
+    func showAlert(with title: String, and message: String, completion: @escaping () -> () = {} ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             completion()

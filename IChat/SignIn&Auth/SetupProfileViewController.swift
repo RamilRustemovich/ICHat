@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SetupProfileViewController: UIViewController {
     
@@ -19,22 +20,47 @@ class SetupProfileViewController: UIViewController {
     let aboutMeTextField = OneLineTextField(withUniqStyle: true, font: .avenir26())
     let sexSegmentedControl = UISegmentedControl(first: "Male", second: "Female")
     let goToChatsButton = UIButton(title: "Go to chats!", titleColor: .white, backgroundColor: .buttonDark)
-    
-    
     let fullImageView = AddPhotoView()
+    
+    private let currentUser: User
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .mainWhite
         setupConstraints()
+        
+        goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func goToChatsButtonTapped() {
+        guard let currentUserEmail = currentUser.email else { return }
+        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
+                                                email: currentUserEmail,
+                                                username: fullNameTextField.text,
+                                                avatarImageString: "nil",
+                                                description: aboutMeTextField.text,
+                                                sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
+                                                    switch result {
+                                                    case .success(let muser):
+                                                        self.showAlert(with: "Успешно", and: "Приятного общения!")
+                                                    case .failure(let error):
+                                                        self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                                                    }
+        }
     }
     
     // MARK: - setup constraints
     private func setupConstraints() {
-        
-        
-        
         
         let fullNameStackView = UIStackView(arrangedSubviews: [fullNameLabel, fullNameTextField], axis: .vertical, spacing: 0)
         let aboutMeStackView = UIStackView(arrangedSubviews: [aboutMeLabel, aboutMeTextField], axis: .vertical, spacing: 0)
@@ -74,7 +100,7 @@ struct SetupProfileVCProvider: PreviewProvider {
     }
     
     struct ContainerView: UIViewControllerRepresentable {
-        let viewController = SetupProfileViewController()
+        let viewController = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) ->  UIViewController {
             return viewController
