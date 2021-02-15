@@ -14,7 +14,7 @@ final class AddPhotoView: UIView {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "avatar")
-        imgView.contentMode = .center
+        imgView.contentMode = .scaleAspectFill//.center
         imgView.clipsToBounds = true
         imgView.layer.borderColor = UIColor.black.cgColor
         imgView.layer.borderWidth = 1
@@ -46,8 +46,6 @@ final class AddPhotoView: UIView {
         circleImageView.layer.masksToBounds = true
         circleImageView.layer.cornerRadius = circleImageView.frame.width / 2
     }
-    
-    
     
     private func setupConstraints() {
         circleImageView.topAnchor.constraint(equalTo: self.topAnchor).activate

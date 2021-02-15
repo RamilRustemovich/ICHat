@@ -37,6 +37,9 @@
 		959DB0B325B33B5900DE9F63 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B225B33B5900DE9F63 /* GradientView.swift */; };
 		959DB0B525B33FB300DE9F63 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B425B33FB300DE9F63 /* WaitingChatCell.swift */; };
 		959DB0B725B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DB0B625B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift */; };
+		95A1375F25D9D0E90007D3D7 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1375E25D9D0E90007D3D7 /* StorageService.swift */; };
+		95A1376125D9D40B0007D3D7 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A1376025D9D40B0007D3D7 /* UIImage + Extension.swift */; };
+		95AC4F2725D8971400A3E3C7 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AC4F2625D8971400A3E3C7 /* UIApplication + Extension.swift */; };
 		95B1A5BC2592799B00D174B3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5BB2592799B00D174B3 /* ListViewController.swift */; };
 		95B1A5BF25927EE200D174B3 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */; };
 		95B1A5C125927F3800D174B3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5C025927F3800D174B3 /* MainTabBarController.swift */; };
@@ -87,6 +90,9 @@
 		959DB0B225B33B5900DE9F63 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		959DB0B425B33FB300DE9F63 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		959DB0B625B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCellProtocol.swift; sourceTree = "<group>"; };
+		95A1375E25D9D0E90007D3D7 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		95A1376025D9D40B0007D3D7 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		95AC4F2625D8971400A3E3C7 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		95B1A5BB2592799B00D174B3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		95B1A5C025927F3800D174B3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 			children = (
 				957FA4E825C305BB009EB14F /* AuthService.swift */,
 				95CBA58425D0AAD00048F4CE /* FirestoreService.swift */,
+				95A1375E25D9D0E90007D3D7 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,10 +198,12 @@
 			children = (
 				9567BD9125896550000DD6F2 /* UIButton + Extension.swift */,
 				954A14F725BCF5C100C9DF4A /* UIView + Extension.swift */,
+				95A1376025D9D40B0007D3D7 /* UIImage + Extension.swift */,
 				9575B40025B8B9E200246340 /* UIViewController + Extension.swift */,
 				95192677258BB4D00040715A /* StackView + Extension.swift */,
 				9567BD93258975BD000DD6F2 /* UIFont + Extension.swift */,
 				9567BD9725897898000DD6F2 /* UILabel + Extension.swift */,
+				95AC4F2625D8971400A3E3C7 /* UIApplication + Extension.swift */,
 				9567BD952589768C000DD6F2 /* UIColor + Extension.swift */,
 				9567BD992589799C000DD6F2 /* UIImageView + Extension.swift */,
 				95E41F9E258D4EA0009019BB /* SegmentedControl + Extension.swift */,
@@ -295,6 +304,7 @@
 				95FF23032589551400C78FDA /* Frameworks */,
 				95FF23042589551400C78FDA /* Resources */,
 				2E3E56E5E6C6BD6D77159B92 /* [CP] Embed Pods Frameworks */,
+				13925878CC0413FDEF0EF0EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -377,6 +387,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		13925878CC0413FDEF0EF0EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IChat/Pods-IChat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IChat/Pods-IChat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IChat/Pods-IChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2E3E56E5E6C6BD6D77159B92 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +431,7 @@
 				9535133225B7927000A42E8E /* MChat.swift in Sources */,
 				95E41F99258D0F8D009019BB /* LoginViewController.swift in Sources */,
 				959DB0B325B33B5900DE9F63 /* GradientView.swift in Sources */,
+				95A1376125D9D40B0007D3D7 /* UIImage + Extension.swift in Sources */,
 				95CBA58725D0AF300048F4CE /* UserError.swift in Sources */,
 				959DB0B725B34D5000DE9F63 /* SelfConfiguringCellProtocol.swift in Sources */,
 				9567BD94258975BD000DD6F2 /* UIFont + Extension.swift in Sources */,
@@ -414,10 +442,12 @@
 				95E41F9B258D1DD8009019BB /* SetupProfileViewController.swift in Sources */,
 				9507C0C525B2401600875AD9 /* Bundle-Decodable.swift in Sources */,
 				95FF230A2589551400C78FDA /* AppDelegate.swift in Sources */,
+				95A1375F25D9D0E90007D3D7 /* StorageService.swift in Sources */,
 				95B1A5BF25927EE200D174B3 /* PeopleViewController.swift in Sources */,
 				95192678258BB4D00040715A /* StackView + Extension.swift in Sources */,
 				954A14F425BCE3E600C9DF4A /* ProfileViewController.swift in Sources */,
 				95192674258BAD460040715A /* ButtonFormView.swift in Sources */,
+				95AC4F2725D8971400A3E3C7 /* UIApplication + Extension.swift in Sources */,
 				95CBA58525D0AAD00048F4CE /* FirestoreService.swift in Sources */,
 				95C14EED25B4F57E002CBDA4 /* SectionHeader.swift in Sources */,
 				95192676258BADD30040715A /* Constraint + Extension.swift in Sources */,

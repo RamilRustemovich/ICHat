@@ -22,12 +22,23 @@ class ListViewController: UIViewController {
         }
     }
     
-    let activeChats: [MChat] = Bundle.main.decode([MChat].self, from: "activeChats.json")
-    let waitingChats: [MChat] = Bundle.main.decode([MChat].self, from: "waitingChats.json")
+    let activeChats: [MChat] = []//Bundle.main.decode([MChat].self, from: "activeChats.json")
+    let waitingChats: [MChat] = []//Bundle.main.decode([MChat].self, from: "waitingChats.json")
        
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
     
+    private let currentUser: MUser
+       
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

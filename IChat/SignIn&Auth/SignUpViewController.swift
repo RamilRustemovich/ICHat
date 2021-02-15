@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SignUpViewController: UIViewController {
     
     weak var delegate: AuthNavigatingDelegate?

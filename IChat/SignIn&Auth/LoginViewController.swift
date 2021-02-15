@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 
 class LoginViewController: UIViewController {
@@ -44,20 +45,31 @@ class LoginViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - button targets
     @objc private func loginButtonTapped() {
         AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { (result) in
             switch result {
-                case .success(let user):
-                    self.showAlert(with: "Success", and: "You're authorized!")
-                
-//                self.showAlert(with: "Success", and: "You're registered!") {
-//                    self.present(SetupProfileViewController(), animated: true, completion: nil)
-//                }
-                case .failure(let error):
-                    self.showAlert(with: "Error", and: error.localizedDescription)
+            case .success(let user):
+                self.showAlert(with: "Success", and: "You're authorized!") {
+                    print("authorized")
+                    FirestoreService.shared.getUserData(user: user) { (result) in
+                        switch result {
+                        case .success(let muser):
+                            print("success")
+                            let mainTabBar = MainTabBarController(currentUser: muser)
+                            mainTabBar.modalPresentationStyle = .fullScreen
+                            self.present(mainTabBar, animated: true, completion: nil)
+                        case .failure(_):
+                            print("failure")
+                            self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                        }
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
             }
         }
     }
@@ -68,7 +80,11 @@ class LoginViewController: UIViewController {
         }
     }
     
-       
+    @objc private func googleButtonTapped() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
         
     // MARK: - setup constraints
     private func setupConstraints() {
