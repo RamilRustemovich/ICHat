@@ -77,6 +77,10 @@ class AuthViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).activate
         
     }
+    
+    deinit {
+           print("AuthViewController deinit")
+    }
 
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
@@ -32,13 +33,13 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     
-    func configure<U>(with value: U) where U : Hashable {//func configure(with value: MChat) {
+    func configure<U>(with value: U) where U : Hashable {
         guard let value: MChat = value as? MChat else {
             return
         }
-        friendImageView.image = UIImage(named: value.userImageString)
-        friendName.text = value.username
-        lastMessage.text = value.lastMessage
+        friendImageView.sd_setImage(with: URL(string: value.friendUserAvatarStringURL), completed: nil)
+        friendName.text = value.friendUsername
+        lastMessage.text = value.lastMessageContent
     }
     
     // MARK: - setup constraints
@@ -52,7 +53,6 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
         addSubview(gradientView)
         addSubview(friendName)
         addSubview(lastMessage)
-        
         
         friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).activate
         friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).activate

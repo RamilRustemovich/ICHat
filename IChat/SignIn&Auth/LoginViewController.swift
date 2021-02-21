@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         view.backgroundColor = .white
+        view.backgroundColor = .white
         googleButton.customizeGoogleButton()
         setupConstraints()
         
@@ -50,26 +50,24 @@ class LoginViewController: UIViewController {
     
     // MARK: - button targets
     @objc private func loginButtonTapped() {
-        AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { (result) in
+        AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { [weak self] (result) in
             switch result {
             case .success(let user):
-                self.showAlert(with: "Success", and: "You're authorized!") {
-                    print("authorized")
+                self?.showAlert(with: "Success", and: "You're authorized!") {
                     FirestoreService.shared.getUserData(user: user) { (result) in
                         switch result {
                         case .success(let muser):
-                            print("success")
                             let mainTabBar = MainTabBarController(currentUser: muser)
                             mainTabBar.modalPresentationStyle = .fullScreen
-                            self.present(mainTabBar, animated: true, completion: nil)
+                            self?.present(mainTabBar, animated: true, completion: nil)
+                            //UIApplication.shared.keyWindow?.rootViewController = mainTabBar
                         case .failure(_):
-                            print("failure")
-                            self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                            self?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
                         }
                     }
                 }
             case .failure(let error):
-                self.showAlert(with: "Error", and: error.localizedDescription)
+                self?.showAlert(with: "Error", and: error.localizedDescription)
             }
         }
     }
@@ -117,6 +115,10 @@ class LoginViewController: UIViewController {
         bottomStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).activate
         bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).activate
         bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).activate
+    }
+    
+    deinit {
+        print("LoginViewController deinit")
     }
     
 }

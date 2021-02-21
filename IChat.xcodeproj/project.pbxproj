@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9504EF9925DDB27F00C85E41 /* MMesage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9504EF9825DDB27F00C85E41 /* MMesage.swift */; };
 		9507C0C125B23F8000875AD9 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 9507C0C025B23F8000875AD9 /* waitingChats.json */; };
 		9507C0C325B23F8A00875AD9 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 9507C0C225B23F8A00875AD9 /* activeChats.json */; };
 		9507C0C525B2401600875AD9 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9507C0C425B2401600875AD9 /* Bundle-Decodable.swift */; };
@@ -44,9 +45,12 @@
 		95B1A5BF25927EE200D174B3 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */; };
 		95B1A5C125927F3800D174B3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A5C025927F3800D174B3 /* MainTabBarController.swift */; };
 		95C14EED25B4F57E002CBDA4 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C14EEC25B4F57E002CBDA4 /* SectionHeader.swift */; };
+		95C9A1BB25DAF90000309615 /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C9A1BA25DAF90000309615 /* ListenerService.swift */; };
+		95C9A1BD25DB4D2E00309615 /* newVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C9A1BC25DB4D2E00309615 /* newVC.swift */; };
 		95CBA58325D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */; };
 		95CBA58525D0AAD00048F4CE /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58425D0AAD00048F4CE /* FirestoreService.swift */; };
 		95CBA58725D0AF300048F4CE /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CBA58625D0AF300048F4CE /* UserError.swift */; };
+		95D3132C25E06E3800282E7D /* WaitingChatsNavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3132B25E06E3800282E7D /* WaitingChatsNavigationProtocol.swift */; };
 		95E41F99258D0F8D009019BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F98258D0F8D009019BB /* LoginViewController.swift */; };
 		95E41F9B258D1DD8009019BB /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */; };
 		95E41F9D258D20E2009019BB /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E41F9C258D20E2009019BB /* AddPhotoView.swift */; };
@@ -60,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9504EF9825DDB27F00C85E41 /* MMesage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMesage.swift; sourceTree = "<group>"; };
 		9507C0C025B23F8000875AD9 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		9507C0C225B23F8A00875AD9 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		9507C0C425B2401600875AD9 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -97,9 +102,12 @@
 		95B1A5BE25927EE200D174B3 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		95B1A5C025927F3800D174B3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		95C14EEC25B4F57E002CBDA4 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		95C9A1BA25DAF90000309615 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
+		95C9A1BC25DB4D2E00309615 /* newVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newVC.swift; sourceTree = "<group>"; };
 		95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegateProtocol.swift; sourceTree = "<group>"; };
 		95CBA58425D0AAD00048F4CE /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		95CBA58625D0AF300048F4CE /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		95D3132B25E06E3800282E7D /* WaitingChatsNavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigationProtocol.swift; sourceTree = "<group>"; };
 		95E41F98258D0F8D009019BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		95E41F9C258D20E2009019BB /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 			children = (
 				9535133125B7927000A42E8E /* MChat.swift */,
 				9535133325B792BE00A42E8E /* MUser.swift */,
+				9504EF9825DDB27F00C85E41 /* MMesage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +187,7 @@
 			children = (
 				957FA4E825C305BB009EB14F /* AuthService.swift */,
 				95CBA58425D0AAD00048F4CE /* FirestoreService.swift */,
+				95C9A1BA25DAF90000309615 /* ListenerService.swift */,
 				95A1375E25D9D0E90007D3D7 /* StorageService.swift */,
 			);
 			path = Services;
@@ -235,6 +245,7 @@
 				95FF230D2589551400C78FDA /* AuthViewController.swift */,
 				953B13FC258BF6EB00FBA3DA /* SignUpViewController.swift */,
 				95E41F98258D0F8D009019BB /* LoginViewController.swift */,
+				95C9A1BC25DB4D2E00309615 /* newVC.swift */,
 				95E41F9A258D1DD8009019BB /* SetupProfileViewController.swift */,
 				95CBA58225D0441E0048F4CE /* AuthNavigatingDelegateProtocol.swift */,
 			);
@@ -249,6 +260,7 @@
 				95B1A5BB2592799B00D174B3 /* ListViewController.swift */,
 				95429AD625BDFC3D00EB4FAA /* ChatRequestViewController.swift */,
 				954A14F325BCE3E600C9DF4A /* ProfileViewController.swift */,
+				95D3132B25E06E3800282E7D /* WaitingChatsNavigationProtocol.swift */,
 				9507C0C625B254D200875AD9 /* Cell */,
 				9535132E25B7913300A42E8E /* Header */,
 			);
@@ -439,6 +451,7 @@
 				954A14F625BCEACD00C9DF4A /* InsertableTextField.swift in Sources */,
 				95FF230E2589551400C78FDA /* AuthViewController.swift in Sources */,
 				957FA4EB25C33493009EB14F /* Validators.swift in Sources */,
+				95C9A1BB25DAF90000309615 /* ListenerService.swift in Sources */,
 				95E41F9B258D1DD8009019BB /* SetupProfileViewController.swift in Sources */,
 				9507C0C525B2401600875AD9 /* Bundle-Decodable.swift in Sources */,
 				95FF230A2589551400C78FDA /* AppDelegate.swift in Sources */,
@@ -457,14 +470,17 @@
 				9567BD9825897898000DD6F2 /* UILabel + Extension.swift in Sources */,
 				9567BD9A2589799C000DD6F2 /* UIImageView + Extension.swift in Sources */,
 				9535133425B792BE00A42E8E /* MUser.swift in Sources */,
+				95D3132C25E06E3800282E7D /* WaitingChatsNavigationProtocol.swift in Sources */,
 				95E41F9D258D20E2009019BB /* AddPhotoView.swift in Sources */,
 				9567BD962589768C000DD6F2 /* UIColor + Extension.swift in Sources */,
+				95C9A1BD25DB4D2E00309615 /* newVC.swift in Sources */,
 				95FF230C2589551400C78FDA /* SceneDelegate.swift in Sources */,
 				95429AD725BDFC3D00EB4FAA /* ChatRequestViewController.swift in Sources */,
 				957FA4E925C305BB009EB14F /* AuthService.swift in Sources */,
 				957FA4ED25C335FB009EB14F /* AuthError.swift in Sources */,
 				954A14F825BCF5C100C9DF4A /* UIView + Extension.swift in Sources */,
 				95B1A5BC2592799B00D174B3 /* ListViewController.swift in Sources */,
+				9504EF9925DDB27F00C85E41 /* MMesage.swift in Sources */,
 				959DB0B525B33FB300DE9F63 /* WaitingChatCell.swift in Sources */,
 				953B13FF258C1A2700FBA3DA /* OneLineTextField.swift in Sources */,
 				9507C0C825B254ED00875AD9 /* ActiveChatCell.swift in Sources */,
