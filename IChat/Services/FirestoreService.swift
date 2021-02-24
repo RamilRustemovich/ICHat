@@ -76,7 +76,7 @@ final class FirestoreService {
         let reference = db.collection(["users", receiver.id, "waitingChats"].joined(separator: "/"))
         let messageRef = reference.document(self.currentUser.id).collection("messages")
         
-        let message = MMesage(user: currentUser, content: message)
+        let message = MMessage(user: currentUser, content: message)
         let chat = MChat(friendUsername: currentUser.username, friendUserAvatarStringURL: currentUser.avatarStringURL, lastMessageContent: message.content, friendId: currentUser.id)
         
         reference.document(currentUser.id).setData(chat.representation) { (error) in
@@ -120,7 +120,7 @@ final class FirestoreService {
                             completion(.failure(error))
                             return
                         }
-                        //completion(.success(Void())) //FIXME: тут в цикле образуется 2 комплишена, переделать бы
+                        //completion(.success(Void())) //FIXME: тут в цикле образуется 2 комплишена, переделать 
                     }
                 }
                 completion(.success(Void()))
@@ -130,9 +130,9 @@ final class FirestoreService {
         }
     }
     
-    private func getWaitingChatMessages(chat: MChat, completion: @escaping (Result<[MMesage], Error>) -> Void) {
+    private func getWaitingChatMessages(chat: MChat, completion: @escaping (Result<[MMessage], Error>) -> Void) {
         let reference = waitingChatsRef.document(chat.friendId).collection("messages")
-        var messages = [MMesage]()
+        var messages = [MMessage]()
         reference.getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -140,7 +140,7 @@ final class FirestoreService {
             }
             
             for document in querySnapshot!.documents {
-                guard let message = MMesage(document: document) else { return }
+                guard let message = MMessage(document: document) else { return }
                 messages.append(message)
             }
             completion(.success(messages))
@@ -173,7 +173,7 @@ final class FirestoreService {
     }
     
     
-   private func createActiveChat(chat: MChat, messages: [MMesage], completion: @escaping (Result<Void, Error>) -> Void) {
+   private func createActiveChat(chat: MChat, messages: [MMessage], completion: @escaping (Result<Void, Error>) -> Void) {
         let messageRef = activeChatsRef.document(chat.friendId).collection("messages")
         activeChatsRef.document(chat.friendId).setData(chat.representation) { (error) in
             if let error = error {
