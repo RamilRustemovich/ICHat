@@ -30,11 +30,9 @@ class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     
-    func configure<U>(with value: U) where U : Hashable {//func configure(with value: MChat) {
-        guard let chat: MChat = value as? MChat else {
-            return
-        }
-        friendImageView.image = UIImage(named: chat.userImageString)
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat: MChat = value as? MChat else { return }
+        friendImageView.sd_setImage(with: URL(string: chat.friendUserAvatarStringURL), completed: nil)
     }
     
     private func setupConstraints() {

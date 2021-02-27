@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 
 class PeopleViewController: UIViewController {
@@ -24,7 +25,8 @@ class PeopleViewController: UIViewController {
     }
     
     
-    let users: [MUser] = []//Bundle.main.decode([MUser].self, from: "users.json")
+    private var users: [MUser] = []
+    private var usersListener: ListenerRegistration?
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>!
     private let currentUser: MUser
@@ -39,6 +41,11 @@ class PeopleViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        usersListener?.remove()
+        print("deinit PeopleViewController")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,9 +53,18 @@ class PeopleViewController: UIViewController {
         setupSearchBar()
         setupCollectionView()
         createDataSource()
-        reloadData()
-        
+                
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
+        
+        usersListener = ListenerService.shared.usersObserve(users: users, completion: { (result) in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.reloadData()
+            case .failure(let error):
+                self.showAlert(with: "Error!", and: error.localizedDescription)
+            }
+        })
     }
     
     @objc private func signOut() {
@@ -78,14 +94,15 @@ class PeopleViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-           collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
-           collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-           collectionView.backgroundColor = .mainWhite
-           view.addSubview(collectionView)
-           
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .mainWhite
+        view.addSubview(collectionView)
+        
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
-           collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
-       }
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
+        collectionView.delegate = self
+    }
     
     // MARK: - Data Source
     private func createDataSource() {
@@ -165,6 +182,16 @@ extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
         print(searchText)
+    }
+}
+
+
+// MARK: - UICollectionViewDelegate
+extension PeopleViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileVC = ProfileViewController(user: user)
+        present(profileVC, animated: true, completion: nil)
     }
 }
 

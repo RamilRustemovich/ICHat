@@ -11,5 +11,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'GoogleSignIn'
 pod 'Firebase/Storage'
+pod 'SDWebImage', '~> 5.0'
+pod 'MessageKit', '~> 3.3.0'
 
 end

@@ -93,6 +93,10 @@ class SignUpViewController: UIViewController {
         bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).activate
         bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).activate
     }
+    
+    deinit {
+           print("SignUpViewController deinit")
+    }
 }
 
 

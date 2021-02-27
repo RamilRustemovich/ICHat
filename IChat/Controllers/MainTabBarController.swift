@@ -24,7 +24,7 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         tabBar.tintColor = #colorLiteral(red: 0.5568627451, green: 0.3529411765, blue: 0.968627451, alpha: 1)
         
         let listVC = ListViewController(currentUser: currentUser)
@@ -35,9 +35,7 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [generateNavigationController(rootViewController: peopleVC, tittle: "People", image: peopleImage),
                            generateNavigationController(rootViewController: listVC, tittle: "Conversations", image: convImage)]
-        
     }
-    
     
     private func generateNavigationController(rootViewController: UIViewController, tittle: String, image: UIImage?) -> UIViewController {
         let navigationVC = UINavigationController(rootViewController: rootViewController)

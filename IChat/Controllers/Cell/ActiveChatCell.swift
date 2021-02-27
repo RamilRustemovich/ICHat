@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
@@ -15,7 +16,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     let friendImageView = UIImageView()
     let friendName = UILabel(text: "User name", font: .laoSangamMN20())
     let lastMessage = UILabel(text: "How are you?", font: .laoSangamMN18())
-    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: #colorLiteral(red: 0.7882352941, green: 0.631372549, blue: 0.9411764706, alpha: 1), endColor: #colorLiteral(red: 0.4784313725, green: 0.6980392157, blue: 0.9215686275, alpha: 1))
+    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: .glamorousPink, endColor: #colorLiteral(red: 0.4784313725, green: 0.6980392157, blue: 0.9215686275, alpha: 1))
     
     
     override init(frame: CGRect) {
@@ -32,13 +33,13 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     
-    func configure<U>(with value: U) where U : Hashable {//func configure(with value: MChat) {
+    func configure<U>(with value: U) where U : Hashable {
         guard let value: MChat = value as? MChat else {
             return
         }
-        friendImageView.image = UIImage(named: value.userImageString)
-        friendName.text = value.username
-        lastMessage.text = value.lastMessage
+        friendImageView.sd_setImage(with: URL(string: value.friendUserAvatarStringURL), completed: nil)
+        friendName.text = value.friendUsername
+        lastMessage.text = value.lastMessageContent
     }
     
     // MARK: - setup constraints
@@ -52,7 +53,6 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
         addSubview(gradientView)
         addSubview(friendName)
         addSubview(lastMessage)
-        
         
         friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).activate
         friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).activate
